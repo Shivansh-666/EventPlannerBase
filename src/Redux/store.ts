@@ -1,4 +1,3 @@
-// src/store.ts or src/redux/store.ts
 import {configureStore} from '@reduxjs/toolkit';
 import {persistReducer, persistStore} from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -14,7 +13,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['user', 'events'], // state slices you want to persist
+  whitelist: ['user', 'events'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -23,7 +22,7 @@ export const store = configureStore({
   reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
-      serializableCheck: false, // redux-persist needs this
+      serializableCheck: false,
     }),
 });
 

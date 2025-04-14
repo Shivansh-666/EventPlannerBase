@@ -29,12 +29,14 @@ function TabNavigator() {
           if (route.name === 'EventListScreen') {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === 'Settings') {
-            iconName = focused ? 'bell' : 'bell-outline'; // Notification icon
+            iconName = focused
+              ? 'account-settings'
+              : 'account-settings-outline'; // Notification icon
           }
 
           return <Icon source={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: 'red', // Active icon color
+        tabBarActiveTintColor: 'cyan', // Active icon color
         tabBarInactiveTintColor: 'white', // Inactive icon color
       })}>
       <Tab.Screen
@@ -45,7 +47,7 @@ function TabNavigator() {
       <Tab.Screen
         name="Settings"
         component={Settings}
-        options={{title: 'ForMe'}}
+        options={{title: 'Settings'}}
       />
     </Tab.Navigator>
   );
